@@ -2,7 +2,7 @@ gateway:
   # -- If the gateway component should be installed
   enabled: true
   # -- Number of replicas for the gateway pod
-  replicas: 1
+  replicas: 2
   # -- The name of the gateway that will be installed
   name: linkerd-gateway
   # -- The port on which all the gateway will accept incoming traffic
@@ -27,7 +27,7 @@ gateway:
   loadBalancerIP: ""
 
 # -- Control plane version
-linkerdVersion: linkerdVersionValue
+linkerdVersion: stable-2.11.2
 # -- The port on which the proxy accepts outbound traffic
 proxyOutboundPort: 4140
 # -- If the remote mirror service account should be installed
@@ -44,7 +44,7 @@ identityTrustDomain: cluster.local
 # ServiceAccounts to the control plane PSP resource. This requires that
 # `enabledPSP` is set to true on the control plane install. Note PSP has been
 # deprecated since k8s v1.21
-enablePSP: false
+enablePSP: true
 
 # -- Enables Pod Anti Affinity logic to balance the placement of replicas
 # across hosts and zones for High Availability.

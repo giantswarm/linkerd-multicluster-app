@@ -65,7 +65,7 @@ Kubernetes: `>=1.20.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| file://../../../charts/partials | partials | 0.1.0 |
+| file://../../../helm/partials | partials | 0.1.0 |
 
 ## Values
 
