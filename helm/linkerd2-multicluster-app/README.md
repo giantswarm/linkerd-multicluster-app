@@ -12,7 +12,7 @@ linking to remote clusters
 ## Quickstart and documentation
 
 You can run Linkerd on any Kubernetes 1.20+ cluster in a matter of seconds. See
-the [Linkerd Getting Started Guide][getting-started] for how.
+the [Linkerd Getting Started Guide](https://github.com/giantswarm/linkerd2-app) for how.
 
 For more comprehensive documentation, start with the [Linkerd
 docs][linkerd-docs].
