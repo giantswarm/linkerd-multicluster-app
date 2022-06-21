@@ -11,7 +11,7 @@ workflows:
           executor: "app-build-suite"
           app_catalog: "giantswarm-catalog"
           app_catalog_test: "giantswarm-test-catalog"
-          chart: "linkerd2-multicluster-app"
+          chart: "linkerd2-multicluster-target-app"
           persist_chart_archive: true
           # Trigger job on git tag.
           filters:

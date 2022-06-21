@@ -1,4 +1,4 @@
-# linkerd2-multicluster-app tests
+# linkerd2-multicluster-target-app tests
 
 We want to ensure this app can be installed without any issues, so we're executing these tests.
 

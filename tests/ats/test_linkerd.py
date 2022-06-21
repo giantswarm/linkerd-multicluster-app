@@ -33,7 +33,7 @@ linkerd_app_app_catalog_url = "https://giantswarm.github.io/giantswarm-catalog/"
 cni_namespace = "linkerd-cni"
 cni_app_name = "linkerd2-cni-app"
 linkerd_multicluster_namespace = "linkerd-namespace-app"
-linkerd_multicluster_app_name = "linkerd2-multicluster-app"
+linkerd_multicluster_app_name = "linkerd2-multicluster-target-app"
 test_app_namespace = "helloworld"
 
 

@@ -1,4 +1,4 @@
-chart-dir: helm/linkerd2-multicluster-app
+chart-dir: helm/linkerd2-multicluster-target-app
 replace-chart-version-with-git: true
 replace-app-version-with-git: false
 generate-metadata: true
