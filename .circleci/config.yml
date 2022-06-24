@@ -12,19 +12,7 @@ workflows:
           app_catalog: "giantswarm-catalog"
           app_catalog_test: "giantswarm-test-catalog"
           chart: "linkerd2-multicluster-target-app"
-          persist_chart_archive: true
           # Trigger job on git tag.
           filters:
             tags:
               only: /^v.*/
-
-      - architect/run-tests-with-ats:
-          name: execute chart tests
-          app-test-suite_container_tag: "0.2.3"
-          filters:
-            # Do not trigger the job on merge to master.
-            branches:
-              ignore:
-                - main
-          requires:
-            - "package and push linkerd2-multicluster chart"
