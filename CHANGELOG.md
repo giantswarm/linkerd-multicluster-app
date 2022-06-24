@@ -9,4 +9,4 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ### Changed
 
-[Unreleased]: https://github.com/giantswarm/linkerd2-app/
+[Unreleased]: https://github.com/giantswarm/linkerd2-multicluster-target-app/

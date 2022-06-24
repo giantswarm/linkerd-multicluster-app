@@ -1,0 +1,7 @@
+chart-dir: helm/linkerd2-multicluster-target-app
+replace-chart-version-with-git: true
+replace-app-version-with-git: false
+generate-metadata: true
+catalog-base-url: https://giantswarm.github.io/giantswarm-catalog/
+# until we support custom template helper filenames
+disable-giantswarm-helm-validator: true
