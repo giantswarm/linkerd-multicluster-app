@@ -2,7 +2,7 @@
 
 [![CircleCI](https://circleci.com/gh/giantswarm/linkerd2-multicluster-target-app.svg?style=shield)](https://circleci.com/gh/giantswarm/linkerd2-multicluster-target-app)
 
-Linkerd2 multicluster appallows configure the Linkerd components that enable multicluster setup for Giant Swarm clusters. Based on the official linkerd2 helm charts with a few changes, required to deploy to Giant Swarm clusters.
+Linkerd2 multicluster app allows to configure the Linkerd components that enable multicluster setup for Giant Swarm clusters. Based on the official linkerd2 helm charts with a few changes, required to deploy to Giant Swarm clusters.
 
 **Before you install this app, please review this document from start to finish!**
 
@@ -10,7 +10,7 @@ Linkerd2 multicluster appallows configure the Linkerd components that enable mul
 
 ### Step 1: Pre-installation and Configuration
 
-- Make sure you have [Linkerd2 deployed succefulyy](https://github.com/giantswarm/linkerd2-app)
+- Make sure you have [Linkerd2 deployed succesfully](https://github.com/giantswarm/linkerd2-app)
 - The Linkerd control planes should have the same trust anchor (you need to generate the certs from a common root CA).
 
 ### Step 2: Deploy Linkerd Multicluster App
@@ -22,11 +22,9 @@ kubectl gs template app \
   --catalog giantswarm \
   --name linkerd2-multicluster-target-app \
   --namespace linkerd-multicluster \
-  --cluster <your-cluster-id>  \
+  --cluster <your-cluster-id> \
   --version 0.1.0 \
-  --user-configmap my-linkerd-values.yaml \
-  --namespace-labels "linkerd.io/is-control-plane=true,config.linkerd.io/admission-webhooks=disabled,linkerd.io/control-plane-ns=linkerd" \
-  --namespace-annotations "linkerd.io/inject=disabled" > linkerd-manifest.yaml
+  --namespace-labels "linkerd.io/extension=multicluster" > linkerd-manifest.yaml
 ```
 
 The final `App` CR should look like this:
@@ -45,22 +43,14 @@ spec:
   name: linkerd2-multicluster-target-app
   namespace: linkerd-multicluster
   namespaceConfig:
-    annotations:
-      linkerd.io/inject: disabled
     labels:
-      config.linkerd.io/admission-webhooks: disabled
-      linkerd.io/control-plane-ns: linkerd
-      linkerd.io/is-control-plane: "true"
-  userConfig:
-    configMap:
-      name: linkerd2-multicluster-target-app-userconfig-<your-cluster-id>
-      namespace: <your-cluster-id>
+      linkerd.io/extension: multicluster
   version: 0.1.0
 ```
 
 ### Step 4: After deployment
 
-- 
+-
 
 ## Troubleshooting
 
