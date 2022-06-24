@@ -1,8 +1,0 @@
-{{- if eq .Release.Service "CLI" -}}
-kind: Namespace
-apiVersion: v1
-metadata:
-  name: {{ .Release.Namespace }}
-  labels:
-    linkerd.io/extension: multicluster
-{{end -}}
