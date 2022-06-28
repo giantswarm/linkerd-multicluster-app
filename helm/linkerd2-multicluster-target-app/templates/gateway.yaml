@@ -42,6 +42,9 @@ spec:
         - name: pause
           image: quay.io/giantswarm/pause:3.2
       serviceAccountName: {{.Values.gateway.name}}
+      securityContext:
+        runAsUser: {{.Values.controllerUID}}
+        readOnlyRootFilesystem: true
 {{- if .Values.enablePodAntiAffinity }}
 ---
 kind: PodDisruptionBudget
