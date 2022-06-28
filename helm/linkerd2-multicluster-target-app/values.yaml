@@ -54,3 +54,6 @@ enablePSP: true
 # across hosts and zones for High Availability.
 # Enable this only when you have multiple replicas of components.
 enablePodAntiAffinity: true
+
+# -- User ID for the gateway
+controllerUID: 2103
