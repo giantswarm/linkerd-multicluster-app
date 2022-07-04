@@ -5,12 +5,12 @@ description: |
   linking to remote clusters
 home: https://linkerd.io
 keywords:
-- service-mesh
+  - service-mesh
 kubeVersion: ">=1.17.0-0"
 name: "linkerd2-multicluster-target-app"
 sources:
-- https://github.com/linkerd/linkerd2/
-version: 0.7.0
+  - https://github.com/linkerd/linkerd2/
+version: 0.1.0
 icon: https://linkerd.io/images/logo-only-200h.png
 maintainers:
   - name: Linkerd authors
