@@ -7,20 +7,11 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
-## [0.7.0] - 2022-07-14
-
-## [0.7.0] - 2022-07-04
-
-## [0.1.0] - 2022-07-04
-
 ## [0.7.0] - 2022-07-04
 
 ### Added
 
-- Add user ID in gateway deployment to avoid Security problems.
+- First version of Linkerd mutlicluster link chart.
 
 [Unreleased]: https://github.com/giantswarm/linkerd2-multicluster-app/compare/v0.7.0...HEAD
 [0.7.0]: https://github.com/giantswarm/linkerd2-multicluster-app/compare/v0.7.0...v0.7.0
-[0.7.0]: https://github.com/giantswarm/linkerd2-multicluster-app/compare/v0.1.0...v0.7.0
-[0.1.0]: https://github.com/giantswarm/linkerd2-multicluster-app/compare/v0.7.0...v0.1.0
-[0.7.0]: https://github.com/giantswarm/linkerd2-multicluster-app/releases/tag/v0.7.0
