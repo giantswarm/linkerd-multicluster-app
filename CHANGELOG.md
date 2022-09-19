@@ -7,6 +7,10 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Changed
+
+- Upgrade to 2.11.4
+
 ## [0.7.0] - 2022-07-04
 
 ### Added
