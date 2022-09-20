@@ -3,9 +3,9 @@
 The Linkerd-Multicluster extension contains resources to support multicluster
 linking to remote clusters
 
-![Version: 0.0.0](https://img.shields.io/badge/Version-0.0.0-informational?style=flat-square)
+![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square)
 
-![AppVersion: stable-2.11.2](https://img.shields.io/badge/AppVersion-stable--2.11.2-informational?style=flat-square)
+![AppVersion: stable-2.11.4](https://img.shields.io/badge/AppVersion-stable--2.11.4-informational?style=flat-square)
 
 **Homepage:** <https://linkerd.io>
 
@@ -94,7 +94,7 @@ Kubernetes: `>=1.17.0-0`
 | identityTrustDomain | string | `"cluster.local"` | Identity Trust Domain of the certificate authority |
 | installNamespace | bool | `false` | If the namespace should be installed |
 | linkerdNamespace | string | `"linkerd"` | Namespace of linkerd installation |
-| linkerdVersion | string | `"stable-2.11.2"` | Control plane version |
+| linkerdVersion | string | `"stable-2.11.4"` | Control plane version |
 | namespace | string | `"linkerd-multicluster"` | Service Mirror component namespace |
 | proxyOutboundPort | int | `4140` | The port on which the proxy accepts outbound traffic |
 | remoteMirrorServiceAccount | bool | `true` | If the remote mirror service account should be installed |

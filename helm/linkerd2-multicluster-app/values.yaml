@@ -29,7 +29,7 @@ gateway:
 # -- If the namespace should be installed
 installNamespace: false
 # -- Control plane version
-linkerdVersion: stable-2.11.2
+linkerdVersion: stable-2.11.4
 # -- Service Mirror component namespace
 namespace: linkerd-multicluster
 # -- The port on which the proxy accepts outbound traffic

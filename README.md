@@ -60,7 +60,7 @@ Check the logs on `linkerd-destination` pod in `linkerd` namespace and see if se
 
 ## Usage with `linkerd` cli
 
-You can use the `linkerd` cli as usual with this app as we're using the default namespaces. (`linkerd` and `linkerd-cni`). You can download it from the [linkerd release page](https://github.com/linkerd/linkerd2/releases/tag/stable-2.11.2).
+You can use the `linkerd` cli as usual with this app as we're using the default namespaces. (`linkerd` and `linkerd-cni`). You can download it from the [linkerd release page](https://github.com/linkerd/linkerd2/releases/tag/stable-2.11.4).
 
 ## Credit
 
