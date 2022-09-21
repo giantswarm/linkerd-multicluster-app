@@ -7,6 +7,8 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+## [0.8.0] - 2022-09-21
+
 ### Changed
 
 - Upgrade to 2.11.4
@@ -17,5 +19,6 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 - First version of Linkerd mutlicluster link chart.
 
-[Unreleased]: https://github.com/giantswarm/linkerd2-multicluster-app/compare/v0.7.0...HEAD
+[Unreleased]: https://github.com/giantswarm/linkerd2-multicluster-app/compare/v0.8.0...HEAD
+[0.8.0]: https://github.com/giantswarm/linkerd2-multicluster-app/compare/v0.7.0...v0.8.0
 [0.7.0]: https://github.com/giantswarm/linkerd2-multicluster-app/compare/v0.7.0...v0.7.0
