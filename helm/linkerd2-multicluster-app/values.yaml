@@ -4,6 +4,7 @@ image:
   registry: quay.io
 
 gateway:
+  image: 'quay.io/giantswarm/pause:3.2'
   # -- If the gateway component should be installed
   enabled: true
   # -- Number of replicas for the gateway pod
@@ -31,12 +32,11 @@ gateway:
   # -- Set loadBalancerIP on gateway service
   loadBalancerIP: ""
 
-# -- If the namespace should be installed
-installNamespace: false
+  # -- User id under which the gateway shall be ran
+  UID: 2103
+
 # -- Control plane version
 linkerdVersion: stable-2.11.4
-# -- Service Mirror component namespace
-namespace: linkerd-multicluster
 # -- The port on which the proxy accepts outbound traffic
 proxyOutboundPort: 4140
 # -- If the remote mirror service account should be installed
@@ -60,5 +60,7 @@ enablePSP: true
 # Enable this only when you have multiple replicas of components.
 enablePodAntiAffinity: true
 
-# -- User ID for the gateway
-controllerUID: 2103
+# -- NodeAffinity section, See the
+# [K8S documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#node-affinity)
+# for more information
+# nodeAffinity:

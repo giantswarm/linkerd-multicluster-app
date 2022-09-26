@@ -1,0 +1,11 @@
+apiVersion: vendir.k14s.io/v1alpha1
+directories:
+- contents:
+  - git:
+      commitTitle: add securityContext to noop
+      sha: c4a67634f161db2cf15091c13d774516b47dc738
+      tags:
+      - stable-2.10.1-2140-gc4a67634f
+    path: linkerd
+  path: vendor
+kind: LockConfig

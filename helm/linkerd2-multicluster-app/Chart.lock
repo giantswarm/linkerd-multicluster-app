@@ -1,0 +1,9 @@
+dependencies:
+- name: linkerd-multicluster
+  repository: ""
+  version: 0.1.0
+- name: partials
+  repository: ""
+  version: 0.1.0
+digest: sha256:06395ec8fc896fd47a3040eaf3045f28b66df35e0e82cbf802c0130247b7a5e4
+generated: "2022-10-26T11:42:53.721375142+02:00"

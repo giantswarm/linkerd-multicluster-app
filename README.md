@@ -21,10 +21,10 @@ We recommend deploying the app by applying an `App` CR (Custom Resource) onto yo
 kubectl gs template app \
   --catalog giantswarm \
   --name linkerd2-multicluster-app \
-  --namespace linkerd-multicluster \
-  --cluster <your-cluster-id> \
-  --version 0.1.0 \
-  --namespace-labels "linkerd.io/extension=multicluster" > linkerd-manifest.yaml
+  --target-namespace linkerd-multicluster \
+  --cluster-name <your-cluster-id> \
+  --version 0.8.0 \
+  --namespace-labels "linkerd.io/extension=multicluster" > linkerd-multicluster-manifest.yaml
 ```
 
 The final `App` CR should look like this:
@@ -45,7 +45,7 @@ spec:
   namespaceConfig:
     labels:
       linkerd.io/extension: multicluster
-  version: 0.1.0
+  version: 0.8.0
 ```
 
 ### Step 4: After deployment

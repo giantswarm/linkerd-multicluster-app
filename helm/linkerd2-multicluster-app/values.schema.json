@@ -2,51 +2,80 @@
     "$schema": "http://json-schema.org/schema#",
     "type": "object",
     "properties": {
-        "controllerUID": {
-            "type": "integer"
-        },
-        "enablePSP": {
-            "type": "boolean"
-        },
-        "enablePodAntiAffinity": {
-            "type": "boolean"
-        },
-        "gateway": {
+        "linkerd-multicluster": {
             "type": "object",
             "properties": {
-                "enabled": {
-                    "type": "boolean"
-                },
-                "loadBalancerIP": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "port": {
+                "controllerUID": {
                     "type": "integer"
                 },
-                "probe": {
+                "enablePSP": {
+                    "type": "boolean"
+                },
+                "enablePodAntiAffinity": {
+                    "type": "boolean"
+                },
+                "gateway": {
                     "type": "object",
                     "properties": {
-                        "path": {
+                        "enabled": {
+                            "type": "boolean"
+                        },
+                        "loadBalancerIP": {
+                            "type": "string"
+                        },
+                        "name": {
                             "type": "string"
                         },
                         "port": {
                             "type": "integer"
                         },
-                        "seconds": {
+                        "probe": {
+                            "type": "object",
+                            "properties": {
+                                "path": {
+                                    "type": "string"
+                                },
+                                "port": {
+                                    "type": "integer"
+                                },
+                                "seconds": {
+                                    "type": "integer"
+                                }
+                            }
+                        },
+                        "replicas": {
                             "type": "integer"
+                        },
+                        "serviceAnnotations": {
+                            "type": "object"
+                        },
+                        "serviceType": {
+                            "type": "string"
                         }
                     }
                 },
-                "replicas": {
+                "identityTrustDomain": {
+                    "type": "string"
+                },
+                "installNamespace": {
+                    "type": "boolean"
+                },
+                "linkerdNamespace": {
+                    "type": "string"
+                },
+                "linkerdVersion": {
+                    "type": "string"
+                },
+                "namespace": {
+                    "type": "string"
+                },
+                "proxyOutboundPort": {
                     "type": "integer"
                 },
-                "serviceAnnotations": {
-                    "type": "object"
+                "remoteMirrorServiceAccount": {
+                    "type": "boolean"
                 },
-                "serviceType": {
+                "remoteMirrorServiceAccountName": {
                     "type": "string"
                 }
             }

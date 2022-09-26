@@ -1,5 +1,13 @@
 {{- define "partials.proxy-init" -}}
 args:
+{{- if (.Values.proxyInit.iptablesMode | default "legacy" | eq "nft") }}
+- --firewall-bin-path
+- "iptables-nft"
+- --firewall-save-bin-path
+- "iptables-nft-save"
+{{- else if not (eq .Values.proxyInit.iptablesMode "legacy") }}
+{{ fail (printf "Unsupported value \"%s\" for proxyInit.iptablesMode\nValid values: [\"nft\", \"legacy\"]" .Values.proxyInit.iptablesMode) }}
+{{- end }}
 - --incoming-proxy-port
 - {{.Values.proxy.ports.inbound | quote}}
 - --outgoing-proxy-port
@@ -28,7 +36,7 @@ args:
 - --subnets-to-ignore
 - {{ .Values.proxyInit.skipSubnets | quote }}
 {{- end }}
-image: {{.Values.proxyInit.image.name}}:{{.Values.proxyInit.image.version}}
+image: "{{.Values.image.registry}}/{{.Values.proxyInit.image.name}}:{{.Values.proxyInit.image.version}}"
 imagePullPolicy: {{.Values.proxyInit.image.pullPolicy | default .Values.imagePullPolicy}}
 name: linkerd-init
 {{ include "partials.resources" .Values.proxyInit.resources }}
@@ -61,6 +69,7 @@ securityContext:
   {{- else }}
   privileged: false
   runAsNonRoot: true
+  runAsUser: {{ .Values.proxyInit.runAsUser | int | eq 0 | ternary 65534 .Values.proxyInit.runAsUser }}
   {{- end }}
   readOnlyRootFilesystem: true
 terminationMessagePolicy: FallbackToLogsOnError

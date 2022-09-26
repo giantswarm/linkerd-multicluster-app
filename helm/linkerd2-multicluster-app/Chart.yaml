@@ -1,23 +1,22 @@
-apiVersion: "v1"
-appVersion: stable-2.11.4
+apiVersion: v2
+appVersion: stable-2.12.2
+annotations:
+  application.giantswarm.io/team: team-cabbage
 description: |
   The Linkerd-Multicluster extension contains resources to support multicluster
   linking to remote clusters
-home: https://linkerd.io
+home: https://github.com/giantswarm/linkerd2-multicluster-app
+icon: https://linkerd.io/images/logo-only-200h.png
+dependencies:
+  - name: partials
+    version: 0.1.0
 keywords:
   - service-mesh
 kubeVersion: ">=1.17.0-0"
-name: "linkerd2-multicluster-app"
+name: "linkerd-multicluster"
 sources:
   - https://github.com/linkerd/linkerd2/
 version: 0.8.0
-icon: https://linkerd.io/images/logo-only-200h.png
-maintainers:
-  - name: Linkerd authors
-    email: cncf-linkerd-dev@lists.cncf.io
-    url: https://linkerd.io/
 restrictions:
   clusterSingleton: true
   fixedNamespace: linkerd-multicluster
-annotations:
-  application.giantswarm.io/team: team-cabbage
