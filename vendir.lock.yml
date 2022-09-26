@@ -2,10 +2,10 @@ apiVersion: vendir.k14s.io/v1alpha1
 directories:
 - contents:
   - git:
-      commitTitle: Add changes for stable-2.11.4 (#8866)...
-      sha: 7b3ebd22d57b300a4baa7f11356fdd8353ae72e1
+      commitTitle: Replace pause image and add security context
+      sha: 9a1f690d58a4487a005e39e04dcc6db162792295
       tags:
-      - stable-2.11.4
+      - stable-2.11.4-1-g9a1f690d
     path: linkerd-multicluster
   path: vendor
 kind: LockConfig
