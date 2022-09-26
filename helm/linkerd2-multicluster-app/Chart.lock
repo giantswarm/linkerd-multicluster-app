@@ -1,0 +1,6 @@
+dependencies:
+- name: linkerd-multicluster
+  repository: ""
+  version: 0.1.0
+digest: sha256:9104d3db92dd343ef315e9d8b1eebbd38e1d520d0df85d7848e6054d86a92e71
+generated: "2022-09-26T09:27:42.964651033Z"

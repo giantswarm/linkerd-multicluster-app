@@ -1,4 +1,3 @@
-
 linkerd-multicluster:
   gateway:
     # -- If the gateway component should be installed

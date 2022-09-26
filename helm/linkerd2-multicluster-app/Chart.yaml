@@ -7,6 +7,11 @@ description: |
   linking to remote clusters
 home: https://github.com/giantswarm/linkerd2-multicluster-app
 icon: https://linkerd.io/images/logo-only-200h.png
+dependencies:
+  - name: linkerd-multicluster
+    version: 0.1.0
+  - name: partials
+    version: 0.1.0
 keywords:
   - service-mesh
 kubeVersion: ">=1.17.0-0"
