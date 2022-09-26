@@ -1,0 +1,12 @@
+apiVersion: vendir.k14s.io/v1alpha1
+kind: Config
+directories:
+- path: vendor
+  contents:
+  - path: linkerd-multicluster
+    git:
+      url: https://github.com/giantswarm/linkerd2-upstream
+      ref: giantswarm/stable-2.11.4
+    includePaths:
+    - multicluster/charts/linkerd-multicluster/**/*
+    - charts/partials/**/*
