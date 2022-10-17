@@ -11,14 +11,6 @@
         "enablePodAntiAffinity": {
             "type": "boolean"
         },
-        "image": {
-            "type": "object",
-            "properties": {
-                "registry": {
-                    "type": "string"
-                }
-            }
-        },
         "gateway": {
             "type": "object",
             "properties": {
@@ -61,6 +53,14 @@
         },
         "identityTrustDomain": {
             "type": "string"
+        },
+        "image": {
+            "type": "object",
+            "properties": {
+                "registry": {
+                    "type": "string"
+                }
+            }
         },
         "installNamespace": {
             "type": "boolean"
