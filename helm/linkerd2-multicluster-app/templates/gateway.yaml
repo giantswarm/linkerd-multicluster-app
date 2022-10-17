@@ -40,7 +40,7 @@ spec:
       {{- end }}
       containers:
         - name: pause
-          image: quay.io/giantswarm/pause:3.2
+          image: {{.Values.image.registry}}/giantswarm/pause:3.2
       serviceAccountName: {{.Values.gateway.name}}
       securityContext:
         runAsUser: {{.Values.controllerUID}}

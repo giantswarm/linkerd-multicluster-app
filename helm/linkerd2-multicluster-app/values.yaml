@@ -1,3 +1,6 @@
+image:
+  registry: quay.io
+
 gateway:
   # -- If the gateway component should be installed
   enabled: true
