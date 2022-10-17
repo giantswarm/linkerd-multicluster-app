@@ -7,6 +7,10 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Changed
+
+- add registry switch to allow installations to automatically set the image registry based on location
+
 ## [0.8.0] - 2022-09-21
 
 ### Changed
