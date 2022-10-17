@@ -11,6 +11,14 @@
         "enablePodAntiAffinity": {
             "type": "boolean"
         },
+        "image": {
+            "type": "object",
+            "properties": {
+                "registry": {
+                    "type": "string"
+                }
+            }
+        },
         "gateway": {
             "type": "object",
             "properties": {
