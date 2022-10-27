@@ -4,7 +4,7 @@ image:
   registry: quay.io
 
 gateway:
-  image: 'quay.io/giantswarm/pause:3.2'
+  image: 'giantswarm/pause:3.2'
   # -- If the gateway component should be installed
   enabled: true
   # -- Number of replicas for the gateway pod
@@ -36,7 +36,7 @@ gateway:
   UID: 2103
 
 # -- Control plane version
-linkerdVersion: stable-2.11.4
+linkerdVersion: stable-2.12.2
 # -- The port on which the proxy accepts outbound traffic
 proxyOutboundPort: 4140
 # -- If the remote mirror service account should be installed
