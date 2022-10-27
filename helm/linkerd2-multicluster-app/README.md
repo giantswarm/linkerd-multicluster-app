@@ -27,7 +27,7 @@ Kubernetes: `>=1.17.0-0`
 | enablePodAntiAffinity | bool | `true` | Enables Pod Anti Affinity logic to balance the placement of replicas across hosts and zones for High Availability. Enable this only when you have multiple replicas of components. |
 | gateway.UID | int | `2103` | User id under which the gateway shall be ran |
 | gateway.enabled | bool | `true` | If the gateway component should be installed |
-| gateway.image | string | `"quay.io/giantswarm/pause:3.2"` |  |
+| gateway.image | string | `"giantswarm/pause:3.2"` |  |
 | gateway.loadBalancerIP | string | `""` | Set loadBalancerIP on gateway service |
 | gateway.name | string | `"linkerd-gateway"` | The name of the gateway that will be installed |
 | gateway.port | int | `4143` | The port on which all the gateway will accept incoming traffic |
@@ -38,8 +38,9 @@ Kubernetes: `>=1.17.0-0`
 | gateway.serviceAnnotations | object | `{}` | Annotations to add to the gateway service |
 | gateway.serviceType | string | `"LoadBalancer"` | Service Type of gateway Service |
 | identityTrustDomain | string | `"cluster.local"` | Identity Trust Domain of the certificate authority |
+| image | object | `{"registry":"quay.io"}` | Registry switch Do not overwrite this as it is automatically set based on the installation region |
 | linkerdNamespace | string | `"linkerd"` | Namespace of linkerd installation |
-| linkerdVersion | string | `"stable-2.11.4"` | Control plane version |
+| linkerdVersion | string | `"stable-2.12.2"` | Control plane version |
 | proxyOutboundPort | int | `4140` | The port on which the proxy accepts outbound traffic |
 | remoteMirrorServiceAccount | bool | `true` | If the remote mirror service account should be installed |
 | remoteMirrorServiceAccountName | string | `"linkerd-service-mirror-remote-access-default"` | The name of the service account used to allow remote clusters to mirror local services |
