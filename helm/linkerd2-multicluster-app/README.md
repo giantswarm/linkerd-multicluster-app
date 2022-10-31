@@ -9,6 +9,7 @@ linking to remote clusters
 
 ## Source Code
 
+* <https://github.com/giantswarm/linkerd2-multicluster-app/>
 * <https://github.com/linkerd/linkerd2/>
 
 ## Requirements
