@@ -60,8 +60,8 @@ Check the logs on `linkerd-destination` pod in `linkerd` namespace and see if se
 
 ## Usage with `linkerd` cli
 
-You can use the `linkerd` cli as usual with this app as we're using the default namespaces. (`linkerd` and `linkerd-cni`). You can download it from the [linkerd release page](https://github.com/linkerd/linkerd2/releases/tag/stable-2.11.4).
+You can use the `linkerd` cli as usual with this app as we're using the default namespaces. (`linkerd` and `linkerd-cni`). You can download it from the [linkerd release page](https://github.com/linkerd/linkerd2/releases/tag/stable-2.12.2).
 
 ## Credit
 
-- <https://linkerd.io/2.11/tasks/install-helm/>
+- <https://linkerd.io/2.12/tasks/install-helm/>
