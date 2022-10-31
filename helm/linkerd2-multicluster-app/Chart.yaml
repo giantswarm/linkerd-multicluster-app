@@ -13,7 +13,7 @@ dependencies:
 keywords:
   - service-mesh
 kubeVersion: ">=1.17.0-0"
-name: "linkerd-multicluster"
+name: "linkerd2-multicluster-app"
 sources:
   - https://github.com/linkerd/linkerd2/
 version: 0.8.0
