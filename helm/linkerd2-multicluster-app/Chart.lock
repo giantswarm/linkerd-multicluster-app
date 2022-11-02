@@ -1,0 +1,6 @@
+dependencies:
+- name: partials
+  repository: ""
+  version: 0.1.0
+digest: sha256:c64071a7e49f638ed618d125f9cdbb1b8f8f8b051ec0511802902d2e14254b13
+generated: "2022-10-27T10:01:32.770361026+02:00"

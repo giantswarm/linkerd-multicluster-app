@@ -2,9 +2,6 @@
     "$schema": "http://json-schema.org/schema#",
     "type": "object",
     "properties": {
-        "controllerUID": {
-            "type": "integer"
-        },
         "enablePSP": {
             "type": "boolean"
         },
@@ -14,8 +11,14 @@
         "gateway": {
             "type": "object",
             "properties": {
+                "UID": {
+                    "type": "integer"
+                },
                 "enabled": {
                     "type": "boolean"
+                },
+                "image": {
+                    "type": "string"
                 },
                 "loadBalancerIP": {
                     "type": "string"
@@ -62,16 +65,10 @@
                 }
             }
         },
-        "installNamespace": {
-            "type": "boolean"
-        },
         "linkerdNamespace": {
             "type": "string"
         },
         "linkerdVersion": {
-            "type": "string"
-        },
-        "namespace": {
             "type": "string"
         },
         "proxyOutboundPort": {

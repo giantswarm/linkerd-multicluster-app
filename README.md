@@ -21,10 +21,10 @@ We recommend deploying the app by applying an `App` CR (Custom Resource) onto yo
 kubectl gs template app \
   --catalog giantswarm \
   --name linkerd2-multicluster-app \
-  --namespace linkerd-multicluster \
-  --cluster <your-cluster-id> \
-  --version 0.1.0 \
-  --namespace-labels "linkerd.io/extension=multicluster" > linkerd-manifest.yaml
+  --target-namespace linkerd-multicluster \
+  --cluster-name <your-cluster-id> \
+  --version 0.8.0 \
+  --namespace-labels "linkerd.io/extension=multicluster" > linkerd-multicluster-manifest.yaml
 ```
 
 The final `App` CR should look like this:
@@ -45,7 +45,7 @@ spec:
   namespaceConfig:
     labels:
       linkerd.io/extension: multicluster
-  version: 0.1.0
+  version: 0.8.0
 ```
 
 ### Step 4: After deployment
@@ -60,8 +60,8 @@ Check the logs on `linkerd-destination` pod in `linkerd` namespace and see if se
 
 ## Usage with `linkerd` cli
 
-You can use the `linkerd` cli as usual with this app as we're using the default namespaces. (`linkerd` and `linkerd-cni`). You can download it from the [linkerd release page](https://github.com/linkerd/linkerd2/releases/tag/stable-2.11.4).
+You can use the `linkerd` cli as usual with this app as we're using the default namespaces. (`linkerd` and `linkerd-cni`). You can download it from the [linkerd release page](https://github.com/linkerd/linkerd2/releases/tag/stable-2.12.2).
 
 ## Credit
 
-- <https://linkerd.io/2.11/tasks/install-helm/>
+- <https://linkerd.io/2.12/tasks/install-helm/>

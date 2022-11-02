@@ -1,0 +1,11 @@
+apiVersion: vendir.k14s.io/v1alpha1
+directories:
+- contents:
+  - git:
+      commitTitle: add registry for multicluster
+      sha: e7a4f0605755f90b73fd2bb05676d0bec0a4581b
+      tags:
+      - stable-2.10.1-2141-ge7a4f0605
+    path: linkerd
+  path: vendor
+kind: LockConfig
