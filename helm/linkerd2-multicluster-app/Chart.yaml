@@ -6,7 +6,7 @@ description: |
   The Linkerd-Multicluster extension contains resources to support multicluster
   linking to remote clusters
 home: https://github.com/giantswarm/linkerd2-multicluster-app
-icon: https://linkerd.io/images/logo-only-200h.png
+icon: https://s.giantswarm.io/app-icons/linkerd2/1/light.svg
 dependencies:
   - name: partials
     version: 0.1.0
@@ -15,7 +15,6 @@ keywords:
 kubeVersion: ">=1.17.0-0"
 name: "linkerd2-multicluster-app"
 sources:
-  - https://github.com/giantswarm/linkerd2-multicluster-app/
   - https://github.com/linkerd/linkerd2/
 version: 0.8.0
 restrictions:
