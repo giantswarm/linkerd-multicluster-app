@@ -70,4 +70,3 @@ namespaceMetadata:
   image:
     name: giantswarm/curl
     version: 7.86.0
-
