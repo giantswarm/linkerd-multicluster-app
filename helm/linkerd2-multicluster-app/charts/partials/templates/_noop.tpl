@@ -3,6 +3,6 @@ securityContext:
   runAsUser: 65535
 args:
 - -v
-image: gcr.io/google_containers/pause:3.2
+image: "{{.Values.image.registry}}/{{.Values.noop.image.name}}:{{.Values.noop.image.version}}"
 name: noop
 {{- end -}}
