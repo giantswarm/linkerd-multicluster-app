@@ -64,3 +64,9 @@ enablePodAntiAffinity: true
 # [K8S documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#node-affinity)
 # for more information
 # nodeAffinity:
+
+# Namespace Metadata images
+namespaceMetadata:
+  image:
+    name: giantswarm/curl
+    version: 7.86.0

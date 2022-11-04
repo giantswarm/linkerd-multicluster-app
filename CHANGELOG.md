@@ -11,6 +11,7 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 - Bump version to 2.12.2 with vendir ([#40](https://github.com/giantswarm/linkerd2-multicluster-app/pull/40)).
 - add registry switch to allow installations to automatically set the image registry based on location.
+- Replace hard-coded image name with values ([#41https://github.com/giantswarm/linkerd2-multicluster-app/pull/41]()).
 
 ## [0.8.0] - 2022-09-21
 

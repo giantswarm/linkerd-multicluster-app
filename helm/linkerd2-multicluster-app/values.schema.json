@@ -71,6 +71,22 @@
         "linkerdVersion": {
             "type": "string"
         },
+        "namespaceMetadata": {
+            "type": "object",
+            "properties": {
+                "image": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "version": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
         "proxyOutboundPort": {
             "type": "integer"
         },

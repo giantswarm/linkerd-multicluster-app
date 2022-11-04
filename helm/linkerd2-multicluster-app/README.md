@@ -9,7 +9,6 @@ linking to remote clusters
 
 ## Source Code
 
-* <https://github.com/giantswarm/linkerd2-multicluster-app/>
 * <https://github.com/linkerd/linkerd2/>
 
 ## Requirements
@@ -42,6 +41,7 @@ Kubernetes: `>=1.17.0-0`
 | image | object | `{"registry":"quay.io"}` | Registry switch Do not overwrite this as it is automatically set based on the installation region |
 | linkerdNamespace | string | `"linkerd"` | Namespace of linkerd installation |
 | linkerdVersion | string | `"stable-2.12.2"` | Control plane version |
+| namespaceMetadata | object | `{"image":{"name":"giantswarm/curl","version":"7.86.0"}}` | NodeAffinity section, See the [K8S documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#node-affinity) for more information nodeAffinity: Namespace Metadata images |
 | proxyOutboundPort | int | `4140` | The port on which the proxy accepts outbound traffic |
 | remoteMirrorServiceAccount | bool | `true` | If the remote mirror service account should be installed |
 | remoteMirrorServiceAccountName | string | `"linkerd-service-mirror-remote-access-default"` | The name of the service account used to allow remote clusters to mirror local services |
