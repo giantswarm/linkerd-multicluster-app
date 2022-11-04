@@ -6,12 +6,12 @@ workflows:
   package-and-push-chart-on-tag:
     jobs:
       - architect/push-to-app-catalog:
-          name: "package and push linkerd2-multicluster chart"
+          name: "package and push linkerd-multicluster chart"
           context: architect
           executor: "app-build-suite"
           app_catalog: "giantswarm-catalog"
           app_catalog_test: "giantswarm-test-catalog"
-          chart: "linkerd2-multicluster-app"
+          chart: "linkerd-multicluster"
           # Trigger job on git tag.
           filters:
             tags:

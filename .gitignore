@@ -1,1 +1,4 @@
 vendor
+linkerd-multicluster*.tgz
+linkerd-multicluster*.tgz-meta
+
