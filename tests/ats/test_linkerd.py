@@ -24,16 +24,19 @@ from pytest_helm_charts.k8s.namespace import ensure_namespace_exists
 logger = logging.getLogger(__name__)
 
 timeout: int = 360
-cni_app_version = "0.7.0"
-cni_app_catalog_url = "https://giantswarm.github.io/giantswarm-catalog/"
-linkerd_namespace = "linkerd"
-linkerd_app_name = "linkerd2-app"
-linkerd_app_version = "0.7.0"
-linkerd_app_app_catalog_url = "https://giantswarm.github.io/giantswarm-catalog/"
+
 cni_namespace = "linkerd-cni"
-cni_app_name = "linkerd2-cni-app"
-linkerd_multicluster_namespace = "linkerd-namespace-app"
-linkerd_multicluster_app_name = "linkerd2-multicluster-app"
+cni_app_version = "0.8.0"
+cni_app_catalog_url = "https://giantswarm.github.io/giantswarm-catalog/"
+cni_app_name = "linkerd2-cni"
+
+linkerd_namespace = "linkerd"
+linkerd_app_name = "linkerd-control-plane"
+linkerd_app_version = "0.8.0"
+linkerd_app_catalog_url = "https://giantswarm.github.io/giantswarm-catalog/"
+
+linkerd_multicluster_namespace = "linkerd-multicluster"
+linkerd_multicluster_app_name = "linkerd-multicluster"
 test_app_namespace = "helloworld"
 
 
@@ -124,7 +127,7 @@ def linkerd_cni_app_cr(
         cni_namespace,
         cni_app_catalog_url,
         timeout_sec=timeout,
-        namespace=cni_namespace,
+        namespace="giantswarm",
         deployment_namespace=cni_namespace,
         extra_spec={
             "namespaceConfig": {
@@ -144,16 +147,16 @@ def linkerd_cni_app_cr(
 # We're registering the same catalog here, just with different name to avoid name conflict.
 @pytest.fixture(scope="module")
 def linkerd_app_cr(
-    app_factory: AppFactoryFunc, chart_version: str, linkerd_cni_app_cr: ConfiguredApp
+    app_factory: AppFactoryFunc, linkerd_cni_app_cr: ConfiguredApp
 ) -> ConfiguredApp:
     res = app_factory(
         linkerd_app_name,
-        chart_version,
-        f"chartmuseum-test-time",
+        linkerd_app_version,
+        f"giantswarm-stable",
         linkerd_namespace,
-        "http://chartmuseum-chartmuseum:8080/charts/",
+        linkerd_app_catalog_url,
         timeout_sec=timeout,
-        namespace=linkerd_namespace,
+        namespace="giantswarm",
         deployment_namespace=linkerd_namespace,
         config_values=load_yaml_from_path("test-values.yaml"),
         extra_spec={
@@ -163,6 +166,29 @@ def linkerd_app_cr(
                     "linkerd.io/is-control-plane": "true",
                     "config.linkerd.io/admission-webhooks": "disabled",
                     "linkerd.io/control-plane-ns": linkerd_namespace,
+                },
+            }
+        },
+    )
+    return res
+
+@pytest.fixture(scope="module")                                                                                                                                                                                                                    
+def linkerd_mutlicluster_app_cr(
+    app_factory: AppFactoryFunc, chart_version: str
+) -> ConfiguredApp:
+    res = app_factory(
+        linkerd_multicluster_app_name,
+        chart_version,
+        f"chartmuseum-test-time",
+        linkerd_namespace,
+        "http://chartmuseum-chartmuseum:8080/charts/",
+        timeout_sec=timeout,
+        namespace="giantswarm",
+        deployment_namespace=linkerd_multicluster_namespace,
+        extra_spec={
+            "namespaceConfig": {
+                "labels": {
+                    "linkerd.io/extension": "multicluster",
                 },
             }
         },
@@ -191,7 +217,7 @@ def test_linkerd_cni_deployed(kube_cluster: Cluster, linkerd_cni_app_cr: AppCR):
     """Install using the linkerd cni"""
     app_cr = (
         AppCR.objects(kube_cluster.kube_client)
-        .filter(namespace=cni_namespace)
+        .filter(namespace="giantswarm")
         .get_by_name(cni_app_name)
     )
     app_version = app_cr.obj["status"]["version"]
@@ -208,16 +234,15 @@ def test_linkerd_cni_deployed(kube_cluster: Cluster, linkerd_cni_app_cr: AppCR):
 
 @pytest.mark.smoke
 def test_linkerd_deployed(
-    kube_cluster: Cluster, linkerd_app_cr: AppCR, chart_version: str
-):
+    kube_cluster: Cluster, linkerd_app_cr: AppCR):
     """Test using the linkerd cli using 'check'"""
     app_cr = (
         AppCR.objects(kube_cluster.kube_client)
-        .filter(namespace=linkerd_namespace)
+        .filter(namespace="giantswarm")
         .get_by_name(linkerd_app_name)
     )
     app_version = app_cr.obj["status"]["version"]
-    assert app_version == chart_version
+    assert app_version == linkerd_app_version
     wait_for_all_linkerd_deployments_to_run(
         kube_cluster.kube_client, linkerd_namespace, timeout
     )
@@ -226,12 +251,12 @@ def test_linkerd_deployed(
 
 @pytest.mark.smoke
 def test_linkerd_multicluster_deployed(
-    kube_cluster: Cluster, linkerd_app_cr: AppCR, chart_version: str
+    kube_cluster: Cluster, linkerd_mutlicluster_app_cr: AppCR, chart_version: str
 ):
     """Test using the linkerd cli using 'check'"""
     app_cr = (
         AppCR.objects(kube_cluster.kube_client)
-        .filter(namespace=linkerd_multicluster_namespace)
+        .filter(namespace="giantswarm")
         .get_by_name(linkerd_multicluster_app_name)
     )
     app_version = app_cr.obj["status"]["version"]
@@ -252,7 +277,7 @@ def test_linkerd_cli_check_passes(kube_cluster: Cluster, linkerd_app_cr: AppCR):
     )
     app_cr = (
         AppCR.objects(kube_cluster.kube_client)
-        .filter(namespace=linkerd_namespace)
+        .filter(namespace="giantswarm")
         .get_by_name(linkerd_app_name)
     )
     app_version = app_cr.obj["status"]["appVersion"]

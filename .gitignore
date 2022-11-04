@@ -1,4 +1,9 @@
 vendor
 linkerd-multicluster*.tgz
 linkerd-multicluster*.tgz-meta
-
+linkerd-cli
+*.kube.config
+test_results_*.xml
+.pytest_cache
+linkerd-cli
+__pycache__
