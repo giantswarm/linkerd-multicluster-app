@@ -7,6 +7,8 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+## [0.9.0] - 2022-11-07
+
 ### Changed
 
 - Bump version to 2.12.2 with vendir ([#40](https://github.com/giantswarm/linkerd2-multicluster-app/pull/40)).
@@ -26,6 +28,7 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 - First version of Linkerd mutlicluster link chart.
 
-[Unreleased]: https://github.com/giantswarm/linkerd2-multicluster-app/compare/v0.8.0...HEAD
+[Unreleased]: https://github.com/giantswarm/linkerd-multicluster-app/compare/v0.9.0...HEAD
+[0.9.0]: https://github.com/giantswarm/linkerd-multicluster-app/compare/v0.8.0...v0.9.0
 [0.8.0]: https://github.com/giantswarm/linkerd2-multicluster-app/compare/v0.7.0...v0.8.0
 [0.7.0]: https://github.com/giantswarm/linkerd2-multicluster-app/compare/v0.7.0...v0.7.0
