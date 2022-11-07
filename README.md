@@ -2,7 +2,7 @@
 
 [![CircleCI](https://circleci.com/gh/giantswarm/linkerd-multicluster-app.svg?style=shield)](https://circleci.com/gh/giantswarm/linkerd-multicluster-app)
 
-Linkerd2 multicluster app allows to configure the Linkerd components that enable multicluster setup for Giant Swarm clusters. Based on the official linkerd2 helm charts with a few changes, required to deploy to Giant Swarm clusters.
+Linkerd multicluster app allows to configure the Linkerd components that enable multicluster setup for Giant Swarm clusters. Based on the official Linkerd helm charts with a few changes, required to deploy to Giant Swarm clusters.
 
 **Before you install this app, please review this document from start to finish!**
 
@@ -10,7 +10,7 @@ Linkerd2 multicluster app allows to configure the Linkerd components that enable
 
 ### Step 1: Pre-installation and Configuration
 
-- Make sure you have [Linkerd2 deployed succesfully](https://github.com/giantswarm/linkerd-control-plane)
+- Make sure you have [Linkerd control plane app deployed succesfully](https://github.com/giantswarm/linkerd-control-plane-app)
 - The Linkerd control planes should have the same trust anchor (you need to generate the certs from a common root CA).
 
 ### Step 2: Deploy Linkerd Multicluster App
