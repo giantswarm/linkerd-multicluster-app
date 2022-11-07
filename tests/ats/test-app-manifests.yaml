@@ -127,7 +127,7 @@ spec:
                 - helloworld
             topologyKey: kubernetes.io/hostname
       containers:
-      - image: {{.Values.image.registry}}/giantswarm/helloworld:latest
+      - image: quay.io/giantswarm/helloworld:latest
         livenessProbe:
           httpGet:
             path: /healthz

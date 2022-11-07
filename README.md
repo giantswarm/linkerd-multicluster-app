@@ -1,6 +1,6 @@
-# linkerd2-multicluster-app chart
+# linkerd-multicluster chart
 
-[![CircleCI](https://circleci.com/gh/giantswarm/linkerd2-multicluster-app.svg?style=shield)](https://circleci.com/gh/giantswarm/linkerd2-multicluster-app)
+[![CircleCI](https://circleci.com/gh/giantswarm/linkerd-multicluster-app.svg?style=shield)](https://circleci.com/gh/giantswarm/linkerd-multicluster-app)
 
 Linkerd2 multicluster app allows to configure the Linkerd components that enable multicluster setup for Giant Swarm clusters. Based on the official linkerd2 helm charts with a few changes, required to deploy to Giant Swarm clusters.
 
@@ -10,7 +10,7 @@ Linkerd2 multicluster app allows to configure the Linkerd components that enable
 
 ### Step 1: Pre-installation and Configuration
 
-- Make sure you have [Linkerd2 deployed succesfully](https://github.com/giantswarm/linkerd2-app)
+- Make sure you have [Linkerd2 deployed succesfully](https://github.com/giantswarm/linkerd-control-plane)
 - The Linkerd control planes should have the same trust anchor (you need to generate the certs from a common root CA).
 
 ### Step 2: Deploy Linkerd Multicluster App
@@ -20,7 +20,7 @@ We recommend deploying the app by applying an `App` CR (Custom Resource) onto yo
 ```bash
 kubectl gs template app \
   --catalog giantswarm \
-  --name linkerd2-multicluster-app \
+  --name linkerd-multicluster \
   --target-namespace linkerd-multicluster \
   --cluster-name <your-cluster-id> \
   --version 0.8.0 \
@@ -34,13 +34,13 @@ The final `App` CR should look like this:
 apiVersion: application.giantswarm.io/v1alpha1
 kind: App
 metadata:
-  name: linkerd2-multicluster-app
+  name: linkerd-multicluster
   namespace: <your-cluster-id>
 spec:
   catalog: giantswarm
   kubeConfig:
     inCluster: false
-  name: linkerd2-multicluster-app
+  name: linkerd-multicluster
   namespace: linkerd-multicluster
   namespaceConfig:
     labels:
