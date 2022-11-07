@@ -23,7 +23,7 @@ kubectl gs template app \
   --name linkerd-multicluster \
   --target-namespace linkerd-multicluster \
   --cluster-name <your-cluster-id> \
-  --version 0.8.0 \
+  --version 0.9.0 \
   --namespace-labels "linkerd.io/extension=multicluster" > linkerd-multicluster-manifest.yaml
 ```
 
@@ -45,7 +45,7 @@ spec:
   namespaceConfig:
     labels:
       linkerd.io/extension: multicluster
-  version: 0.8.0
+  version: 0.9.0
 ```
 
 ### Step 4: After deployment
