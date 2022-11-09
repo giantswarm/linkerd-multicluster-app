@@ -2,10 +2,18 @@ apiVersion: vendir.k14s.io/v1alpha1
 directories:
 - contents:
   - git:
-      commitTitle: Add templates for hardcoded images (#446)
-      sha: 8d02fc06c80613d0c51f2fe5c2130f675fc90255
+      commitTitle: 'Merge pull request #447 from giantswarm/viz_add_gs-labels...'
+      sha: d14f8f322a91fdc4dfca6d63de0d2a234fd11b9f
       tags:
-      - stable-2.10.1-2147-g8d02fc06c
+      - stable-2.10.1-2149-gd14f8f322
     path: linkerd
   path: vendor
+- contents:
+  - directory: {}
+    path: .
+  path: helm/linkerd-multicluster/templates
+- contents:
+  - directory: {}
+    path: .
+  path: helm/linkerd-multicluster/charts/partials
 kind: LockConfig

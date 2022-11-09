@@ -10,3 +10,13 @@ directories:
     includePaths:
     - multicluster/charts/linkerd-multicluster/**/*
     - charts/partials/**/*
+- path: helm/linkerd-multicluster/templates
+  contents:
+  - path: .
+    directory:
+      path: vendor/linkerd/multicluster/charts/linkerd-multicluster/templates
+- path: helm/linkerd-multicluster/charts/partials
+  contents:
+  - path: .
+    directory:
+      path: vendor/linkerd/charts/partials
