@@ -7,6 +7,10 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Fixed
+
+- Remove proxyProtocol filed from gateway policy which prevented routing traffic other than HTTP
+
 ## [0.9.0] - 2022-11-07
 
 ### Changed
