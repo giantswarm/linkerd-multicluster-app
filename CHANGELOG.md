@@ -7,6 +7,14 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Changed
+
+- Update icon url
+
+### Added
+
+- Add logo url
+
 ## [0.9.1] - 2022-11-24
 
 ### Fixed
