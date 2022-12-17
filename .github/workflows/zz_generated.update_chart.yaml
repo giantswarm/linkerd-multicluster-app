@@ -1,6 +1,6 @@
 # DO NOT EDIT. Generated with:
 #
-#    devctl@5.14.0
+#    devctl@5.15.0
 #
 
 #
@@ -81,9 +81,9 @@ jobs:
           ref: ${{ needs.gather_facts.outputs.branch }}
       - name: Install vendir
         run: |
-          wget https://github.com/vmware-tanzu/carvel-vendir/releases/download/v0.32.0/vendir-linux-amd64 -O /tmp/vendir
+          wget https://github.com/vmware-tanzu/carvel-vendir/releases/download/v0.32.2/vendir-linux-amd64 -O /tmp/vendir
           SHA_VENDIR=`shasum -a 256 /tmp/vendir | cut -d ' ' -f1`
-          [ "$SHA_VENDIR" != "0b52c170f4a30c2b6213ff0048ecc89c9c25c3e4da56eb1e095fcdb335bd82ed" ] && echo "invalid vendir binary" && exit 1
+          [ "$SHA_VENDIR" != "f5d3cbbd8135d2d48f4f007b8a933bd60b2a827d68f4001c5d1774392fa7b3f2" ] && echo "invalid vendir binary" && exit 1
           sudo mv /tmp/vendir /usr/local/bin/vendir && chmod a+x /usr/local/bin/vendir
       - name: Run update
         run: |
