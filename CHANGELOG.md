@@ -9,17 +9,18 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ### Changed
 
-- Update icon url
+- Upgrade to linkerd v2.12.4.
+- Update icon url.
 
 ### Added
 
-- Add logo url
+- Add logo url.
 
 ## [0.9.1] - 2022-11-24
 
 ### Fixed
 
-- Remove proxyProtocol filed from gateway policy which prevented routing traffic other than HTTP
+- Remove proxyProtocol filed from gateway policy which prevented routing traffic other than HTTP.
 
 ## [0.9.0] - 2022-11-07
 

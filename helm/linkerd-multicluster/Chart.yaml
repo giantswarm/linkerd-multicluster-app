@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: stable-2.12.2
+appVersion: stable-2.12.4
 annotations:
   application.giantswarm.io/team: team-cabbage
   ui.giantswarm.io/logo: https://s.giantswarm.io/app-icons/linkerd2/2/logo_light.svg
