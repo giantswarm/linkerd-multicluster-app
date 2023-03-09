@@ -17,7 +17,7 @@ kubeVersion: ">=1.17.0-0"
 name: "linkerd-multicluster"
 sources:
   - https://github.com/linkerd/linkerd2/
-version: 0.9.1
+version: 0.10.0
 restrictions:
   clusterSingleton: true
   fixedNamespace: linkerd-multicluster
