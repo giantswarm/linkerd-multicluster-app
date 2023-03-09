@@ -36,7 +36,7 @@ gateway:
   UID: 2103
 
 # -- Control plane version
-linkerdVersion: stable-2.12.2
+linkerdVersion: stable-2.12.4
 # -- The port on which the proxy accepts outbound traffic
 proxyOutboundPort: 4140
 # -- If the remote mirror service account should be installed

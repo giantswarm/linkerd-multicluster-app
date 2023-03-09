@@ -2,10 +2,10 @@ apiVersion: vendir.k14s.io/v1alpha1
 directories:
 - contents:
   - git:
-      commitTitle: 'Merge pull request #447 from giantswarm/viz_add_gs-labels...'
-      sha: d14f8f322a91fdc4dfca6d63de0d2a234fd11b9f
+      commitTitle: Merge tag 'refs/tags/stable-2.12.4' into upgrade-2.12.4...
+      sha: 6a3b38f5edf1aa4781ad1b60f899bba020b47b44
       tags:
-      - stable-2.10.1-2149-gd14f8f322
+      - stable-2.10.1-2189-g6a3b38f5e
     path: linkerd
   path: vendor
 - contents:
