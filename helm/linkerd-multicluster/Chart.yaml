@@ -2,12 +2,12 @@ apiVersion: v2
 appVersion: stable-2.12.4
 annotations:
   application.giantswarm.io/team: team-cabbage
-  ui.giantswarm.io/logo: https://s.giantswarm.io/app-icons/linkerd2/2/logo_light.svg
+  ui.giantswarm.io/logo: https://s.giantswarm.io/app-icons/linkerd2/2/logo_dark.svg
 description: |
   The Linkerd-Multicluster extension contains resources to support multicluster
   linking to remote clusters
 home: https://github.com/giantswarm/linkerd2-multicluster-app
-icon: https://s.giantswarm.io/app-icons/linkerd2/2/icon_light.svg
+icon: https://s.giantswarm.io/app-icons/linkerd2/2/icon_dark.svg
 dependencies:
   - name: partials
     version: 0.1.0
