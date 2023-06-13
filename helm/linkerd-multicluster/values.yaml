@@ -53,7 +53,9 @@ linkerdVersion: stable-2.13.4
 # -- Additional labels to add to all pods
 podLabels: {}
 # -- Labels to apply to all resources
-commonLabels: {}
+commonLabels:
+  giantswarm.io/service-type: managed
+  application.giantswarm.io/team: cabbage
 # -- Docker imagePullPolicy for all multicluster components
 imagePullPolicy: IfNotPresent
 # -- The port on which the proxy accepts outbound traffic
