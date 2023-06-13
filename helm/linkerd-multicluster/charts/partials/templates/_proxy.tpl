@@ -49,6 +49,14 @@ env:
 - name: LINKERD2_PROXY_OUTBOUND_CONNECT_TIMEOUT
   value: {{.Values.proxy.outboundConnectTimeout | quote}}
 {{ end -}}
+{{ if .Values.proxy.outboundDiscoveryCacheUnusedTimeout -}}
+- name: LINKERD2_PROXY_OUTBOUND_DISCOVERY_IDLE_TIMEOUT
+  value: {{.Values.proxy.outboundDiscoveryCacheUnusedTimeout | quote}}
+{{ end -}}
+{{ if .Values.proxy.inboundDiscoveryCacheUnusedTimeout -}}
+- name: LINKERD2_PROXY_INBOUND_DISCOVERY_IDLE_TIMEOUT
+  value: {{.Values.proxy.inboundDiscoveryCacheUnusedTimeout | quote}}
+{{ end -}}
 - name: LINKERD2_PROXY_CONTROL_LISTEN_ADDR
   value: 0.0.0.0:{{.Values.proxy.ports.control}}
 - name: LINKERD2_PROXY_ADMIN_LISTEN_ADDR
@@ -161,7 +169,10 @@ securityContext:
   {{- include "partials.proxy.capabilities" . | nindent 2 -}}
   {{- end }}
   readOnlyRootFilesystem: true
+  runAsNonRoot: true
   runAsUser: {{.Values.proxy.uid}}
+  seccompProfile:
+    type: RuntimeDefault
 terminationMessagePolicy: FallbackToLogsOnError
 {{- if or (.Values.proxy.await) (.Values.proxy.waitBeforeExitSeconds) }}
 lifecycle:
