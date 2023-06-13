@@ -4,7 +4,6 @@ image:
   registry: quay.io
 
 gateway:
-  image: 'giantswarm/pause:3.2'
   # -- If the gateway component should be installed
   enabled: true
   # -- Number of replicas for the gateway pod
@@ -43,7 +42,7 @@ gateway:
   tolerations: []
 
   # -- The pause container to use
-  pauseImage: "gcr.io/google_containers/pause:3.2"
+  pauseImage: "giantswarm/pause:3.2"
 
   # -- User id under which the gateway shall be ran
   UID: 2103
