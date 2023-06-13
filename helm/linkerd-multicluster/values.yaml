@@ -29,14 +29,33 @@ gateway:
     seconds: 3
   # -- Annotations to add to the gateway service
   serviceAnnotations: {}
+  # -- Annotations to add to the gateway deployment
+  deploymentAnnotations: {}
   # -- Set loadBalancerIP on gateway service
   loadBalancerIP: ""
+  # -- Set loadBalancerSourceRanges on gateway service
+  loadBalancerSourceRanges: []
+  # -- Set terminationGracePeriodSeconds on gateway deployment
+  terminationGracePeriodSeconds: ""
+  # -- Node selectors for the gateway pod
+  nodeSelector: {}
+  # -- Tolerations for the gateway pod
+  tolerations: []
+
+  # -- The pause container to use
+  pauseImage: "gcr.io/google_containers/pause:3.2"
 
   # -- User id under which the gateway shall be ran
   UID: 2103
 
 # -- Control plane version
-linkerdVersion: stable-2.12.4
+linkerdVersion: stable-2.13.4
+# -- Additional labels to add to all pods
+podLabels: {}
+# -- Labels to apply to all resources
+commonLabels: {}
+# -- Docker imagePullPolicy for all multicluster components
+imagePullPolicy: IfNotPresent
 # -- The port on which the proxy accepts outbound traffic
 proxyOutboundPort: 4140
 # -- If the remote mirror service account should be installed
@@ -48,6 +67,18 @@ remoteMirrorServiceAccountName: linkerd-service-mirror-remote-access-default
 linkerdNamespace: linkerd
 # -- Identity Trust Domain of the certificate authority
 identityTrustDomain: cluster.local
+
+namespaceMetadata:
+  image:
+    # -- Docker registry for the namespace-metadata instance
+    registry: quay.io
+    # -- Docker image name for the namespace-metadata instance
+    name: giantswarm/linkerd2-extension-init
+    # -- Docker image tag for the namespace-metadata instance
+    tag: v0.1.0
+    # -- Pull policy for the namespace-metadata instance
+    # @default -- imagePullPolicy
+    pullPolicy: ""
 
 # -- Create Roles and RoleBindings to associate this extension's
 # ServiceAccounts to the control plane PSP resource. This requires that
@@ -64,9 +95,3 @@ enablePodAntiAffinity: true
 # [K8S documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#node-affinity)
 # for more information
 # nodeAffinity:
-
-# Namespace Metadata images
-namespaceMetadata:
-  image:
-    name: giantswarm/curl
-    version: 7.86.0
