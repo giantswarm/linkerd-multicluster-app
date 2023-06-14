@@ -9,9 +9,9 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: {{.}}
-  namespace: {{$.Release.Namespace}}
   labels:
     linkerd.io/extension: multicluster
+    {{- with $.Values.commonLabels }}{{ toYaml . | trim | nindent 4 }}{{- end }}
   annotations:
     {{ include "partials.annotations.created-by" $ }}
 rules:
@@ -33,6 +33,7 @@ metadata:
   namespace: {{$.Release.Namespace}}
   labels:
     linkerd.io/extension: multicluster
+    {{- with $.Values.commonLabels }}{{ toYaml . | trim | nindent 4 }}{{- end }}
   annotations:
     {{ include "partials.annotations.created-by" $ }}
 ---
@@ -43,6 +44,7 @@ metadata:
   namespace: {{$.Release.Namespace}}
   labels:
     linkerd.io/extension: multicluster
+    {{- with $.Values.commonLabels }}{{ toYaml . | trim | nindent 4 }}{{- end }}
   annotations:
     kubernetes.io/service-account.name: {{.}}
     {{ include "partials.annotations.created-by" $ }}
@@ -52,9 +54,9 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: {{.}}
-  namespace: {{$.Release.Namespace}}
   labels:
     linkerd.io/extension: multicluster
+    {{- with $.Values.commonLabels }}{{ toYaml . | trim | nindent 4 }}{{- end }}
   annotations:
     {{ include "partials.annotations.created-by" $ }}
 roleRef:

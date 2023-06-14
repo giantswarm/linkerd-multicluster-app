@@ -26,13 +26,13 @@ logger = logging.getLogger(__name__)
 timeout: int = 360
 
 cni_namespace = "linkerd-cni"
-cni_app_version = "0.8.0"
+cni_app_version = "1.0.0"
 cni_app_catalog_url = "https://giantswarm.github.io/giantswarm-catalog/"
 cni_app_name = "linkerd2-cni"
 
 linkerd_namespace = "linkerd"
 linkerd_app_name = "linkerd-control-plane"
-linkerd_app_version = "0.8.0"
+linkerd_app_version = "1.0.0"
 linkerd_app_catalog_url = "https://giantswarm.github.io/giantswarm-catalog/"
 
 linkerd_multicluster_namespace = "linkerd-multicluster"

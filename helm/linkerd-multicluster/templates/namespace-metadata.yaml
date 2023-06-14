@@ -4,12 +4,13 @@ metadata:
   annotations:
     {{ include "partials.annotations.created-by" . }}
     "helm.sh/hook": post-install
-    "helm.sh/hook-weight": "0"
+    "helm.sh/hook-weight": "1"
     "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
   labels:
     app.kubernetes.io/name: namespace-metadata
     app.kubernetes.io/part-of: Linkerd
     app.kubernetes.io/version: {{default .Values.linkerdVersion .Values.cliVersion}}
+    {{- with .Values.commonLabels }}{{ toYaml . | trim | nindent 4 }}{{- end }}
   name: namespace-metadata
   namespace: {{.Release.Namespace}}
 spec:
@@ -22,29 +23,30 @@ spec:
         app.kubernetes.io/name: namespace-metadata
         app.kubernetes.io/part-of: Linkerd
         app.kubernetes.io/version: {{default .Values.linkerdVersion .Values.cliVersion}}
+        {{- with .Values.podLabels }}{{ toYaml . | trim | nindent 8 }}{{- end }}
     spec:
       restartPolicy: Never
+      securityContext:
+        seccompProfile:
+          type: RuntimeDefault
       serviceAccountName: namespace-metadata
       containers:
       - name: namespace-metadata
-        image: "{{.Values.image.registry}}/{{.Values.namespaceMetadata.image.name}}:{{.Values.namespaceMetadata.image.version}}"
-        command: ["/bin/sh"]
+        image: {{.Values.image.registry}}/{{.Values.namespaceMetadata.image.name}}:{{.Values.namespaceMetadata.image.tag}}
+        imagePullPolicy: {{.Values.namespaceMetadata.image.pullPolicy | default .Values.imagePullPolicy}}
         securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          runAsNonRoot: true
           runAsUser: {{.Values.gateway.UID}}
+          seccompProfile:
+            type: RuntimeDefault
         args:
-        - -c
-        - |
-          ops=''
-          token=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
-          ns=$(curl -kfv -H "Authorization: Bearer $token" \
-            "https://kubernetes.default.svc/api/v1/namespaces/{{.Release.Namespace}}")
-
-          if ! echo "$ns" | grep -q 'labels'; then
-            ops="$ops{\"op\": \"add\",\"path\": \"/metadata/labels\",\"value\": {}},"
-          fi
-
-          ops="$ops{\"op\": \"add\", \"path\": \"/metadata/labels/linkerd.io~1extension\", \"value\": \"multicluster\"}"
-
-          curl -kfv -XPATCH -H "Content-Type: application/json-patch+json" -H "Authorization: Bearer $token" \
-            -d "[$ops]" \
-            "https://kubernetes.default.svc/api/v1/namespaces/{{.Release.Namespace}}?fieldManager=kubectl-label"
+        - --extension
+        - multicluster
+        - --namespace
+        - {{.Release.Namespace}}
+        - --linkerd-namespace
+        - {{.Values.linkerdNamespace}}

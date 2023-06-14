@@ -1,6 +1,6 @@
 # linkerd-multicluster
 
-![Version: 0.9.0](https://img.shields.io/badge/Version-0.9.0-informational?style=flat-square) ![AppVersion: stable-2.12.2](https://img.shields.io/badge/AppVersion-stable--2.12.2-informational?style=flat-square)
+![Version: 0.10.0](https://img.shields.io/badge/Version-0.10.0-informational?style=flat-square) ![AppVersion: stable-2.13.4](https://img.shields.io/badge/AppVersion-stable--2.13.4-informational?style=flat-square)
 
 The Linkerd-Multicluster extension contains resources to support multicluster
 linking to remote clusters
@@ -23,13 +23,18 @@ Kubernetes: `>=1.17.0-0`
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| commonLabels | object | `{}` | Labels to apply to all resources |
 | enablePSP | bool | `true` | Create Roles and RoleBindings to associate this extension's ServiceAccounts to the control plane PSP resource. This requires that `enabledPSP` is set to true on the control plane install. Note PSP has been deprecated since k8s v1.21 |
 | enablePodAntiAffinity | bool | `true` | Enables Pod Anti Affinity logic to balance the placement of replicas across hosts and zones for High Availability. Enable this only when you have multiple replicas of components. |
 | gateway.UID | int | `2103` | User id under which the gateway shall be ran |
+| gateway.deploymentAnnotations | object | `{}` | Annotations to add to the gateway deployment |
 | gateway.enabled | bool | `true` | If the gateway component should be installed |
 | gateway.image | string | `"giantswarm/pause:3.2"` |  |
 | gateway.loadBalancerIP | string | `""` | Set loadBalancerIP on gateway service |
+| gateway.loadBalancerSourceRanges | list | `[]` | Set loadBalancerSourceRanges on gateway service |
 | gateway.name | string | `"linkerd-gateway"` | The name of the gateway that will be installed |
+| gateway.nodeSelector | object | `{}` | Node selectors for the gateway pod |
+| gateway.pauseImage | string | `"gcr.io/google_containers/pause:3.2"` | The pause container to use |
 | gateway.port | int | `4143` | The port on which all the gateway will accept incoming traffic |
 | gateway.probe.path | string | `"/ready"` | The path that will be used by remote clusters for determining whether the gateway is alive |
 | gateway.probe.port | int | `4191` | The port used for liveliness probing |
@@ -37,11 +42,18 @@ Kubernetes: `>=1.17.0-0`
 | gateway.replicas | int | `3` | Number of replicas for the gateway pod |
 | gateway.serviceAnnotations | object | `{}` | Annotations to add to the gateway service |
 | gateway.serviceType | string | `"LoadBalancer"` | Service Type of gateway Service |
+| gateway.terminationGracePeriodSeconds | string | `""` | Set terminationGracePeriodSeconds on gateway deployment |
+| gateway.tolerations | list | `[]` | Tolerations for the gateway pod |
 | identityTrustDomain | string | `"cluster.local"` | Identity Trust Domain of the certificate authority |
 | image | object | `{"registry":"quay.io"}` | Registry switch Do not overwrite this as it is automatically set based on the installation region |
+| imagePullPolicy | string | `"IfNotPresent"` | Docker imagePullPolicy for all multicluster components |
 | linkerdNamespace | string | `"linkerd"` | Namespace of linkerd installation |
-| linkerdVersion | string | `"stable-2.12.2"` | Control plane version |
-| namespaceMetadata | object | `{"image":{"name":"giantswarm/curl","version":"7.86.0"}}` | NodeAffinity section, See the [K8S documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#node-affinity) for more information nodeAffinity: Namespace Metadata images |
+| linkerdVersion | string | `"stable-2.13.4"` | Control plane version |
+| namespaceMetadata.image.name | string | `"giantswarm/linkerd2-extension-init"` | Docker image name for the namespace-metadata instance |
+| namespaceMetadata.image.pullPolicy | string | imagePullPolicy | Pull policy for the namespace-metadata instance |
+| namespaceMetadata.image.registry | string | `"quay.io"` | Docker registry for the namespace-metadata instance |
+| namespaceMetadata.image.tag | string | `"v0.1.0"` | Docker image tag for the namespace-metadata instance |
+| podLabels | object | `{}` | Additional labels to add to all pods |
 | proxyOutboundPort | int | `4140` | The port on which the proxy accepts outbound traffic |
 | remoteMirrorServiceAccount | bool | `true` | If the remote mirror service account should be installed |
 | remoteMirrorServiceAccountName | string | `"linkerd-service-mirror-remote-access-default"` | The name of the service account used to allow remote clusters to mirror local services |

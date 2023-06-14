@@ -2,6 +2,9 @@
     "$schema": "http://json-schema.org/schema#",
     "type": "object",
     "properties": {
+        "commonLabels": {
+            "type": "object"
+        },
         "enablePSP": {
             "type": "boolean"
         },
@@ -14,6 +17,9 @@
                 "UID": {
                     "type": "integer"
                 },
+                "deploymentAnnotations": {
+                    "type": "object"
+                },
                 "enabled": {
                     "type": "boolean"
                 },
@@ -23,7 +29,16 @@
                 "loadBalancerIP": {
                     "type": "string"
                 },
+                "loadBalancerSourceRanges": {
+                    "type": "array"
+                },
                 "name": {
+                    "type": "string"
+                },
+                "nodeSelector": {
+                    "type": "object"
+                },
+                "pauseImage": {
                     "type": "string"
                 },
                 "port": {
@@ -51,6 +66,12 @@
                 },
                 "serviceType": {
                     "type": "string"
+                },
+                "terminationGracePeriodSeconds": {
+                    "type": "string"
+                },
+                "tolerations": {
+                    "type": "array"
                 }
             }
         },
@@ -64,6 +85,9 @@
                     "type": "string"
                 }
             }
+        },
+        "imagePullPolicy": {
+            "type": "string"
         },
         "linkerdNamespace": {
             "type": "string"
@@ -80,12 +104,21 @@
                         "name": {
                             "type": "string"
                         },
-                        "version": {
+                        "pullPolicy": {
+                            "type": "string"
+                        },
+                        "registry": {
+                            "type": "string"
+                        },
+                        "tag": {
                             "type": "string"
                         }
                     }
                 }
             }
+        },
+        "podLabels": {
+            "type": "object"
         },
         "proxyOutboundPort": {
             "type": "integer"
