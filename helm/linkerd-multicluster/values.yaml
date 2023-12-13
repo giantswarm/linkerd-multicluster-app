@@ -1,7 +1,7 @@
 # -- Registry switch
 # Do not overwrite this as it is automatically set based on the installation region
 image:
-  registry: quay.io
+  registry: gsoci.azurecr.io
 
 gateway:
   # -- If the gateway component should be installed
