@@ -45,7 +45,7 @@ Kubernetes: `>=1.17.0-0`
 | gateway.terminationGracePeriodSeconds | string | `""` | Set terminationGracePeriodSeconds on gateway deployment |
 | gateway.tolerations | list | `[]` | Tolerations for the gateway pod |
 | identityTrustDomain | string | `"cluster.local"` | Identity Trust Domain of the certificate authority |
-| image | object | `{"registry":"quay.io"}` | Registry switch Do not overwrite this as it is automatically set based on the installation region |
+| image | object | `{"registry":"gsoci.azurecr.io"}` | Registry switch Do not overwrite this as it is automatically set based on the installation region |
 | imagePullPolicy | string | `"IfNotPresent"` | Docker imagePullPolicy for all multicluster components |
 | linkerdNamespace | string | `"linkerd"` | Namespace of linkerd installation |
 | linkerdVersion | string | `"stable-2.13.4"` | Control plane version |
