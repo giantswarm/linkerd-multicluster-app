@@ -155,7 +155,7 @@ spec:
         runAsUser: 1000
       serviceAccountName: helloworld-sa
 ---
-apiVersion: policy/v1beta1
+apiVersion: policy/v1
 kind: PodDisruptionBudget
 metadata:
   labels:
