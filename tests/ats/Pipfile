@@ -9,7 +9,7 @@ pytest = ">=6.2.5"
 pykube-ng = ">=21.10.0"
 pyyaml = "~=6.0"
 pytest-rerunfailures = ">=10.2"
-requests = "~=2.27.1"
+requests = "~=2.31.0"
 
 [requires]
 python_version = "3.9"
