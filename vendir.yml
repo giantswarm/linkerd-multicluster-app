@@ -6,7 +6,7 @@ directories:
   - path: linkerd
     git:
       url: https://github.com/giantswarm/linkerd2-upstream
-      ref: stable-2.13.x
+      ref: v18.9.1
     includePaths:
     - multicluster/charts/linkerd-multicluster/**/*
     - charts/partials/**/*
