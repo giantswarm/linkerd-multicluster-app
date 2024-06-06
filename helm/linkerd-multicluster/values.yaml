@@ -42,7 +42,7 @@ gateway:
   tolerations: []
 
   # -- The pause container to use
-  pauseImage: "giantswarm/pause:3.9"
+  pauseImage: "giantswarm/pause:3.10"
 
   # -- User id under which the gateway shall be ran
   UID: 2103
